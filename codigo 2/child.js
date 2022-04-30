@@ -5,5 +5,4 @@ exec('node app.js dolar txt dolar 856.58', (error, stdout, stderr) => {
 		return
 	}
 	console.log(`stdout: ${stdout}`)
-	console.error(`stderr: ${stderr}`)
 })
