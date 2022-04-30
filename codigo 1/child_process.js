@@ -12,5 +12,4 @@ exec(`node app.js ${nombreArchivo} ${extension} ${indicador} ${cantidad}`, (erro
 		return
 	}
 	console.log(`stdout: ${stdout}`)
-	console.error(`stderr: ${stderr}`)
 })
