@@ -1,5 +1,5 @@
 const axi = require('axios')
-async function getData() {
+const getData = async () =>{
 	try {
 		const { data } = await axi.get('https://mindicador.cl/api')
 		return data
@@ -8,4 +8,4 @@ async function getData() {
 	}
 }
 
-module.exports = {getData}
+module.exports = getData
