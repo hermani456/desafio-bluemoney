@@ -6,5 +6,6 @@ exec(`node app.js ${nombreArchivo} ${extension} ${indicador} ${cantidad}`, (erro
 		console.error(`exec error: ${error}`)
 		return
 	}
-	console.log(`${stdout}`)
+	console.log(stdout)
+	console.error(stderr);
 })

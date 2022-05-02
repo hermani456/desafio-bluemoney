@@ -1,21 +1,14 @@
-const fs = require('fs')
 const getData = require('./apicall.js')
-const template = require('./template.js')
+const createTemplate = require('./createtemplate.js')
 const { nombreArchivo, extension, indicador, cantidad } = require('./args.js')
+const createFileIfNotExist = require('./createfile.js')
 
 ;(async () => {
 	const data = await getData()
 	const cambio = data[indicador].valor
 	const total = (cantidad / cambio).toFixed(2)
 	const date = new Date().toUTCString()
-	const mensaje = template(date, cantidad, indicador, total)
+	const mensaje = createTemplate(date, cantidad, indicador, total)
 
-	fs.writeFile(
-		`${nombreArchivo}.${extension}`,
-		mensaje,
-		'utf8',
-		() => {
-			console.log(mensaje)
-		}
-	)
+   createFileIfNotExist(`${nombreArchivo}.${extension}`, mensaje)
 })()
